@@ -1,0 +1,43 @@
+.mainList {
+  padding: 109px 15px 25px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+
+    p {
+      color: #1D1D1D;
+      font-family: Prosto One;
+      font-size: 30px;
+      text-transform: capitalize;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  &__animation {
+    margin-top: 13px;
+
+    img {
+      border-radius: 48px;
+    }
+  }
+}
+
+
+//media
+
+@media screen and (max-width: 400px) {
+
+.mainList__cards {
+  flex-direction: column;
+  justify-content: center;
+}
+
+}

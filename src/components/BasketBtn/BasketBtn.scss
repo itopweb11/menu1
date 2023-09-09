@@ -1,0 +1,16 @@
+.basketBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+
+  button {
+    display: inline-flex;
+    padding: 5px 19px;
+    align-items: flex-start;
+    gap: 8.485px;
+    border-radius: 6.788px;
+    background: #0E3F16;
+    border: none;
+    box-shadow: 0 2.545454502105713px 8.484848976135254px 0 rgba(0, 0, 0, 0.15);
+  }
+}

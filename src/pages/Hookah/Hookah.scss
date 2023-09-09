@@ -1,0 +1,63 @@
+.hookah {
+  background: url("../../assets/images/hookah/hookah-still.png");
+  background-size: cover;
+  min-height: 2088px;
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.7;
+    background: url("../../assets/images/hookah/hookah.gif") center;
+    background-size: cover;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    padding: 93px 26px 15px 26px;
+
+    p {
+      color: #FFF;
+      font-family: Prosto One;
+      font-size: 30px;
+      font-weight: 400;
+    }
+
+    &_title {
+      margin-top: 21px;
+      text-transform: capitalize;
+      z-index: 1;
+    }
+
+    &_content {
+      max-width: 416px;
+      width: 100%;
+      min-height: 77px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+
+      p {
+        color: #FFF;
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+
+//media
+
+@media screen and (max-width: 370px) {
+  .hookah__container p {
+    font-size: 25px;
+  }
+}
