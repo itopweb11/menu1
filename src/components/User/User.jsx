@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from '../../assets/images/header/icon.png'
 import "./User.scss"
+import {useSelector} from "react-redux";
 
 const User = () => {
     return (
