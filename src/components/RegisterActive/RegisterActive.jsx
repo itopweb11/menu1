@@ -1,8 +1,8 @@
 import React from 'react';
-import './LoginActive.scss'
+import './RegisterActive.scss'
 import Vector from '../../assets/images/Login/Vector.png'
 import {Link} from "react-router-dom";
-const LoginActive = ({desc}) => {
+const RegisterActive = ({desc}) => {
     return (
         <Link className="loginActive" to={"/"}>
             <img src={Vector} alt="icon"/>
@@ -11,4 +11,4 @@ const LoginActive = ({desc}) => {
     );
 };
 
-export default LoginActive;
+export default RegisterActive;

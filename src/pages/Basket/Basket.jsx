@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './Basket.scss'
-import LoginActive from "../../components/LoginActive/LoginActive";
+import RegisterActive from "../../components/RegisterActive/RegisterActive";
 
 const Basket = () => {
     const [persons, setPersons] = useState(0)
@@ -10,7 +10,7 @@ const Basket = () => {
         <div className="basket">
             {
                 order
-                    ?  <LoginActive desc="Заказ создан"/>
+                    ?  <RegisterActive desc="Заказ создан"/>
                     : <div>
                         <h1 className="basket__title">Корзина</h1>
                         <div className="basket__desc">

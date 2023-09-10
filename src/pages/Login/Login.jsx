@@ -1,41 +1,81 @@
-import React, {useState} from 'react';
+import React, {useReducer, useRef} from 'react';
 import "./Login.scss"
-import LoginActive from "../../components/LoginActive/LoginActive";
+import RegisterActive from "../../components/RegisterActive/RegisterActive";
+import {Link, useNavigate} from "react-router-dom";
+import {api} from "../../api";
+
+function reducer(state, action) {
+    switch (action.type) {
+        case 'set_login':
+            return {
+                ...state,
+                login: action.login,
+            };
+        case 'set_password':
+            return {
+                ...state,
+                password: action.password,
+            };
+        default:
+            return state;
+    }
+}
+
+const initialState = {login: "", password: ""};
 
 const Login = () => {
-    const [login, setLogin] = useState(true)
-    const [loginActive, setLoginActive] = useState(false)
+    const loginActiveRef = useRef(false)
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const navigate = useNavigate();
 
+    const setToken = (token) => {
+        localStorage.setItem("token", token)
+        navigate("/")
+    }
+    const loginAction = () => {
+        const login = state.login
+        if (String(login).match(/^.*@.*$/)) {
+            api.authApi.tokenEmail({
+                email: state.login,
+                password: state.password
+            }).then(res => setToken(res.data.auth_token)).catch(e => console.log(e))
+        } else {
+            api.authApi.tokenPhone({
+                phone: state.login,
+                password: state.password
+            }).then(res => setToken(res.data.auth_token)).catch(e => console.log(e))
+        }
+    }
     return (
         <div className="registration">
             {
-                loginActive
-                    ? <LoginActive desc="Вы успешно зарегистрировались"/>
-                    :  <div className={login ? "registration__container" : "registration__container registration__container_login"}>
-                        <h3 className={login ? "registration__container_title" : "regNone"}>Регистрация</h3>
-                        <h3 className={!login ? "registration__container_title registration__container_title_login" : "regNone"}>Вход в личный кабинет</h3>
-                        <div className={login ? "registration__container_inputs" : "regNone"}>
-                            <input type="text" placeholder="Почта"/>
-                            <input type="text" placeholder="Имя"/>
-                            <input type="text" placeholder="Пароль"/>
-                            <input type="text" placeholder="Фамилия"/>
-                            <input type="text" placeholder="Повторить пароль"/>
-                            <input type="text" placeholder="Телефон"/>
+                !loginActiveRef
+                    ? <RegisterActive desc="Вы успешно зарегистрировались"/>
+                    : <div className={"registration__container registration__container_login"}>
+                        <h3 className={"registration__container_title registration__container_title_login"}>Вход в
+                            личный
+                            кабинет</h3>
+                        <div className={"registration__container_inputs registration__container_inputs_login"}>
+                            <input
+                                value={state.login}
+                                onChange={e => dispatch({type: 'set_login', login: e.target.value})}
+                                type="text"
+                                placeholder="Почта или телефон"
+                            />
+                            <input
+                                value={state.password}
+                                onChange={e => dispatch({type: 'set_password', password: e.target.value})}
+                                type="password"
+                                placeholder="Пароль"
+                            />
                         </div>
-                        <div className={!login ? "registration__container_inputs registration__container_inputs_login" : "regNone"}>
-                            <input type="text" placeholder="Почта или телефон"/>
-                            <input type="text" placeholder="Пароль"/>
-                        </div>
-                        <div className={login ? "registration__container_signIn" : "regNone"}>
-                            <p>Есть аккаунт?</p>
-                            <a onClick={() => setLogin(false)} href="#">Войдите!</a>
-                        </div>
-                        <div className={!login ? "registration__container_signIn registration__container_signIn_login" : "regNone"}>
+                        <div className={"registration__container_signIn registration__container_signIn_login"}>
                             <p>Еще нет аккаунта?</p>
-                            <a onClick={() => setLogin(true)} href="#">Зарегистрируйтесь!</a>
+                            <Link to={"/register"}>Зарегистрируйтесь!</Link>
                         </div>
-                        <button onClick={() => setLoginActive(true)} className={login ? "registration__container_button" : "regNone"}>Зарегистрироваться</button>
-                        <button onClick={() => setLoginActive(true)} className={!login ? "registration__container_button registration__container_button_login" : "regNone"}>Войти</button>
+                        <button onClick={loginAction}
+                                className={"registration__container_button registration__container_button_login"}>Войти
+                        </button>
                     </div>
             }
         </div>

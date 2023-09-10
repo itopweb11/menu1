@@ -4,16 +4,15 @@ import history from "../helpers/history"
 export const request = (method, url, data = {}, auth = true) => {
     const api = process.env.REACT_APP_API
     return http(method, api + url + "/", data, auth).catch(error => {
-        if (error.response.status === 401 && auth === true) {
-            history.push("/logout")
-        }
+        alert(error.response.data.message)
         return Promise.reject(error)
     })
 }
 
 const http = (method, url, data = {}, auth = true) => {
-    let query = "?"
+    let query = ""
     if (method === "get") {
+        query = "?"
         Object.keys(data).forEach(key => {
             if (typeof data[key] !== 'function') {
                 query += key + "=" + data[key] + "&"

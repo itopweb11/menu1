@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './Preorder.scss'
-import LoginActive from "../../components/LoginActive/LoginActive";
+import RegisterActive from "../../components/RegisterActive/RegisterActive";
 
 const Preorder = () => {
     const [preorder, setPreorder] = useState(false)
@@ -8,7 +8,7 @@ const Preorder = () => {
         <div className="preorder">
             {
                 preorder
-                ? <LoginActive desc="Заказ оформлен"/>
+                ? <RegisterActive desc="Заказ оформлен"/>
                     :  <div className="preorder__container">
                         <p>Предзаказ банкета</p>
                         <input type="text" placeholder="Имя*"/>
