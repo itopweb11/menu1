@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {mainData} from "../Main/data";
 import history from "../../helpers/history";
@@ -6,6 +6,7 @@ import {api} from "../../api";
 import Card from "../../components/Card/Card";
 import gifSalads from "../../assets/gif/main/салаты.gif"
 import "./MainList.scss"
+
 const MainList = ({basket, setBasket}) => {
     let {name} = useParams();
     const [data, setData] = useState({
@@ -14,6 +15,7 @@ const MainList = ({basket, setBasket}) => {
         link: ''
     })
     const [goods, setGoods] = useState([])
+    const [showId, setShowId] = useState(-1)
 
 
     useEffect(() => {
@@ -26,13 +28,29 @@ const MainList = ({basket, setBasket}) => {
     }, [name])
 
     useEffect(() => {
-        if (data.link){
-            api.goodsApi.getList({type: data.link}).then(res => {
-                console.log(res)
+        if (data.link) {
+            api.goodsApi.getList({type: "Основное меню", subtype: data.desc}).then(res => {
                 setGoods(res.data.results)
             })
         }
     }, [data])
+
+    const handleClick = (id) => {
+        setShowId(id)
+    }
+    const orderStyle = (id) => {
+        if (window.innerWidth > 400){
+            if (showId >= 0 && showId % 2 === 1) {
+                if (id - 1 === showId) {
+                    return id - 1
+                } else if (id === showId) {
+                    return id + 1
+                }
+            }
+        }
+
+        return id
+    }
 
     return (
         <div className="mainList">
@@ -43,8 +61,12 @@ const MainList = ({basket, setBasket}) => {
                 <img src={gifSalads} alt="gif"/>
             </div>
             <div className="mainList__cards">
-                {goods.map((good , idx) =>
+                {goods.map((good, idx) =>
                     <Card
+                        style={{order: orderStyle(idx)}}
+                        key={good.id}
+                        isShow={showId === idx}
+                        onClick={() => handleClick(idx)}
                         basket={basket}
                         setBasket={setBasket}
                         title={good.title}
