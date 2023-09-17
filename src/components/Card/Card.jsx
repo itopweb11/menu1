@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./Card.scss"
 import BasketBtn from "../BasketBtn/BasketBtn";
 import Counter from "../Counter/Counter";
 const Card = ({compound, image, title, price, weight, setBasket, basket, onClick, isShow, style}) => {
     const [num , setNum] = useState(0)
-    const [card , setCard] = useState(false)
-    const [timer , setTimer] = useState(false)
 
     return (
         <div  className={isShow ? "card  card__active" : "card"} style={style}>
@@ -13,7 +11,7 @@ const Card = ({compound, image, title, price, weight, setBasket, basket, onClick
                 <img src={image} alt="icon"/>
             </div>
             {
-                /*isShow && timer ?
+                isShow ?
                     <div className="card__desc_active">
                         <div className="card__desc_active_title">
                             <p>{title}</p>
@@ -24,11 +22,11 @@ const Card = ({compound, image, title, price, weight, setBasket, basket, onClick
                             <p>{price} руб</p>
                             {
                                 num > 0 ? <Counter basket={basket} setBasket={setBasket} num={num} setNum={setNum}/>
-                                    : <BasketBtn card={card} basket={basket} setBasket={setBasket} num={num} setNum={setNum}/>
+                                    : <BasketBtn isShow={isShow} basket={basket} setBasket={setBasket} num={num} setNum={setNum}/>
                             }
                         </div>
                     </div>
-                    : */<div className="card__desc">
+                    : <div className="card__desc">
                         <p className="card__desc_name">{title}</p>
                         <div className="card__desc_price">
                             <p>{price} руб</p>
