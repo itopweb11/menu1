@@ -8,7 +8,6 @@ import "./Header.scss"
 import PersonalAreaModal from "../../PersonalAreaModal/PersonalAreaModal";
 
 const Header = ({basket, menu, setMenu}) => {
-    const [personal, setPersonal] = useState(false)
 
     return (
         <header className="header">
@@ -32,9 +31,9 @@ const Header = ({basket, menu, setMenu}) => {
                     {/*<Link className="header__container_icons_linkReg" to="/login">
                         <User setPersonal={setPersonal}/>
                     </Link>*/}
-                    <User setPersonal={setPersonal}/>
+                    <User/>
                 </div>
-                <PersonalAreaModal setPersonal={setPersonal} personal={personal}/>
+
             </div>
         </header>
     );

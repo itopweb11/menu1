@@ -11,9 +11,13 @@ async function tokenPhone(data = {}) {
 async function getMe() {
     return request('get', "/users/me", {}, true)
 }
+async function register(data = {}) {
+    return request('post', "/users", data, false)
+}
 
 export const authApi = {
     tokenEmail,
     tokenPhone,
-    getMe
+    getMe,
+    register
 }

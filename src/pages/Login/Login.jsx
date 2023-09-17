@@ -1,7 +1,7 @@
 import React, {useReducer, useState} from 'react';
 import "./Login.scss"
 import RegisterActive from "../../components/RegisterActive/RegisterActive";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from 'react-redux'
 import {authLogin} from "../../redux/auth/thunk";
 import {initialState, reducer} from "./reducers";
@@ -11,22 +11,25 @@ const Login = () => {
     const [isLogin, setIsLogin] = useState(false)
     const [state, dispatch] = useReducer(reducer, initialState);
     const dispatchStore = useDispatch()
+    const navigate = useNavigate();
 
     const loginAction = () => {
         const login = state.login
         if (String(login).match(/^.*@.*$/)) {
-            dispatchStore(authLogin("email", {email: state.login, password: state.password})).then(() => {
-                setIsLogin(true)
-            })
+            dispatchStore(authLogin("email", {email: state.login, password: state.password})).then(goToBack)
         } else {
-            dispatchStore(authLogin("phone", {phone: state.login, password: state.password})).then(() => {
-                setIsLogin(true)
-            })
+            dispatchStore(authLogin("phone", {phone: state.login, password: state.password})).then(goToBack)
         }
     }
 
     const setData = (key, e) => {
         dispatch({type: 'set_data', key: key, value: e.target.value})
+    }
+    const goToBack = () => {
+        setIsLogin(true)
+        setTimeout(()=>{
+            navigate("/")
+        }, 3000)
     }
 
     return (
