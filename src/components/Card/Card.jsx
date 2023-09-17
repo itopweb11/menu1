@@ -2,21 +2,50 @@ import React, {useState} from 'react';
 import "./Card.scss"
 import BasketBtn from "../BasketBtn/BasketBtn";
 import Counter from "../Counter/Counter";
-const Card = ({image, title, price, weight, setBasket, basket}) => {
+const Card = ({compound, image, title, price, weight, setBasket, basket}) => {
     const [num , setNum] = useState(0)
+    const [card , setCard] = useState(false)
+    const [timer , setTimer] = useState(false)
+
+    const handleClick = () => {
+        card ? setCard(false) : setCard(true)
+        setTimeout(() => {
+            timer ? setTimer(false) : setTimer(true)
+        }, 1000);
+    }
 
     return (
-        <div  className="card">
-            <div className="card__img">
+        <div  className={card ? "card  card__active" : "card"}>
+            <div onClick={handleClick} className={card ? "card__img  card__img_active" : "card__img"}>
                 <img src={image} alt="icon"/>
             </div>
-            <p className="card__name">{title}</p>
-            <div className="card__price">
-                <p>{price} руб</p>
-                <p>{weight} г.</p>
-            </div>
             {
-                num > 0 ? <Counter basket={basket} setBasket={setBasket} num={num} setNum={setNum}/> : <BasketBtn basket={basket} setBasket={setBasket} num={num} setNum={setNum}/>
+                card && timer ?
+                    <div className="card__desc_active">
+                        <div className="card__desc_active_title">
+                            <p>{title}</p>
+                            <p>{weight} г.</p>
+                        </div>
+                        <p className="card__desc_active_compound">Состав {compound}</p>
+                        <div  className="card__desc_active_price">
+                            <p>{price} руб</p>
+                            {
+                                num > 0 ? <Counter basket={basket} setBasket={setBasket} num={num} setNum={setNum}/>
+                                    : <BasketBtn card={card} basket={basket} setBasket={setBasket} num={num} setNum={setNum}/>
+                            }
+                        </div>
+                    </div>
+                    : <div className="card__desc">
+                        <p className="card__desc_name">{title}</p>
+                        <div className="card__desc_price">
+                            <p>{price} руб</p>
+                            <p>{weight} г.</p>
+                        </div>
+                        {
+                            num > 0 ? <Counter basket={basket} setBasket={setBasket} num={num} setNum={setNum}/>
+                                : <BasketBtn basket={basket} setBasket={setBasket} num={num} setNum={setNum}/>
+                        }
+                    </div>
             }
         </div>
     );

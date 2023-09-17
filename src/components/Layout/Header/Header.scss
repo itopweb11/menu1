@@ -24,20 +24,21 @@
       justify-content: end;
       width: 100%;
 
-      &_linkBasket {
-        position: relative;
-        right: 3px;
-        top: 7px;
-        width: 35px;
-      }
-
       &_linkReg {
         width: 38px;
         height: 31px;
       }
 
       &_basket {
-        display: flex;
+        margin-top: 16px;
+
+        &_linkBasket {
+          display: flex;
+          position: relative;
+          right: 3px;
+          top: 7px;
+          width: 35px;
+        }
 
         &_desc {
           width: 17px;

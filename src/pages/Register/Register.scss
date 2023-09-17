@@ -42,11 +42,15 @@
     }
 
     &_inputs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8.8px 13.6px;
-      margin-top: 8px;
-      justify-content: center;
+
+      &_block {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8.8px 13.6px;
+        margin-top: 8px;
+        justify-content: center;
+      }
+
 
       &_login {
         gap: 15px;

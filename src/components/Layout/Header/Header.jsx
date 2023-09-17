@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import User from '../../User/User'
 import LogoIcon from '../../../assets/images/header/logo.png'
 import Basket from '../../../assets/images/basket/BasketIcon.png'
 import {Link} from "react-router-dom";
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
 import "./Header.scss"
+import PersonalAreaModal from "../../PersonalAreaModal/PersonalAreaModal";
 
 const Header = ({basket, menu, setMenu}) => {
+    const [personal, setPersonal] = useState(false)
 
     return (
         <header className="header">
@@ -16,20 +18,23 @@ const Header = ({basket, menu, setMenu}) => {
                     <img className="header__container_link_logo" src={LogoIcon} alt="logo"/>
                 </Link>
                 <div className="header__container_icons">
-                    <Link className="header__container_icons_linkBasket" to="/basket">
-                        {
+                    {
                         basket > 0
                             ?  <div className="header__container_icons_basket">
-                                    <img src={Basket} alt="icon"/>
-                                    <div className="header__container_icons_basket_desc">{basket}</div>
+                                    <Link className="header__container_icons_basket_linkBasket" to="/basket">
+                                        <img src={Basket} alt="icon"/>
+                                        <div className="header__container_icons_basket_desc">{basket}</div>
+                                    </Link>
                                 </div>
-                            : ""
-                        }
-                    </Link>
-                    <Link className="header__container_icons_linkReg" to="/login">
-                        <User/>
-                    </Link>
+                                : ""
+                    }
+
+                    {/*<Link className="header__container_icons_linkReg" to="/login">
+                        <User setPersonal={setPersonal}/>
+                    </Link>*/}
+                    <User setPersonal={setPersonal}/>
                 </div>
+                <PersonalAreaModal setPersonal={setPersonal} personal={personal}/>
             </div>
         </header>
     );

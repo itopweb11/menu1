@@ -30,9 +30,17 @@
     }
 
     &_active {
-      left: 0;
+      left: 0px;
       opacity: 1;
-      margin-top: 79px;
+      margin-top: 80px;
     }
   }
+}
+
+.popupMenu {
+  width: 414px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }

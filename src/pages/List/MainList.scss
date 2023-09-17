@@ -30,6 +30,10 @@
   }
 }
 
+.cardsDop {
+  flex-direction: row-reverse
+}
+
 
 //media
 
@@ -37,7 +41,21 @@
 
 .mainList__cards {
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
+  .mainList__animation img {
+    border-radius: 48px;
+    width: 300px;
+  }
 }
+
+@media screen and (max-width: 350px) {
+  .mainList__animation img {
+    width: 300px;
+  }
+
+}
+
+

@@ -3,10 +3,10 @@ import Icon from '../../assets/images/header/icon.png'
 import "./User.scss"
 import {useSelector} from "react-redux";
 
-const User = () => {
+const User = ({setPersonal}) => {
     return (
         <div className="user">
-            <img className="user__container_icon" src={Icon} alt="Icon"/>
+            <img onClick={() => setPersonal(true)} className="user__container_icon" src={Icon} alt="Icon"/>
         </div>
     );
 };

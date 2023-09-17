@@ -5,7 +5,7 @@
   background-size: cover;
 
   &__container {
-    padding: 103px 5px 44px 5px;
+    padding: 103px 15px 44px 15px;
 
     &_title {
       color: #FFF;
@@ -17,8 +17,8 @@
 
     &_items {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
       margin-top: 29px;
 

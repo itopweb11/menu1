@@ -12,9 +12,9 @@ const HeaderMenu = ({menu,setMenu}) => {
                 src={IconMenu}
                 alt="iconMenu"
             />
-            <div>
+            <div className={menu ? "popupMenu" : ""}>
                 <div className={!menu ? "menu__items" : "menu__items_active menu__items"}>
-                    <Link to={"/"}>
+                    <Link to={"/stock"}>
                         <p>Акции</p>
                     </Link>
                     <Link to={"https://tyteda.ru/"}>

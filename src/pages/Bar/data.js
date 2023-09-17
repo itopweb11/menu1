@@ -40,32 +40,32 @@ export const barData = [
         link: '/'
     },
     {
-        id: 8,
+        id: 9,
         desc: 'Ром',
         link: '/'
     },
     {
-        id: 8,
+        id: 10,
         desc: 'Текила',
         link: '/'
     },
     {
-        id: 8,
+        id: 11,
         desc: 'Пиво',
         link: '/'
     },
     {
-        id: 8,
+        id: 12,
         desc: 'Напитки',
         link: '/'
     },
     {
-        id: 8,
+        id: 13,
         desc: 'чай',
         link: '/'
     },
     {
-        id: 8,
+        id: 14,
         desc: 'кофе',
         link: '/'
     },

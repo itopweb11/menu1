@@ -22,7 +22,7 @@ const Basket = () => {
                             <p className="basket__desc_price">Сумма: 800руб</p>
                             <div className="basket__desc_table">
                                 <p>Номер стола:</p>
-                                <input type="text"/>
+                                <input type="number"/>
                             </div>
                             <div className="basket__desc_persons">
                                 <p>Кол-Во персон:</p>

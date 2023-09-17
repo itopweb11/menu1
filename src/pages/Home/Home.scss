@@ -1,9 +1,9 @@
 .home {
-  padding: 0 15px;
+  padding: 285px 15px 0 15px;
   background: url("../../assets/images/home/background.png") center no-repeat;
+  background-size: cover;
 
   &__container {
-    height: 736px;
     display: flex;
     flex-direction: column;
     justify-content: end;

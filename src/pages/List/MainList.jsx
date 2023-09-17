@@ -43,13 +43,14 @@ const MainList = ({basket, setBasket}) => {
                 <img src={gifSalads} alt="gif"/>
             </div>
             <div className="mainList__cards">
-                {goods.map(good =>
+                {goods.map((good , idx) =>
                     <Card
                         basket={basket}
                         setBasket={setBasket}
                         title={good.title}
                         price={good.price}
                         weight={good.weight}
+                        compound={good.compound}
                         image={good.images.length > 0 ? good.images[0].images : ""}
                     />
                 )}

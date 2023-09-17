@@ -11,6 +11,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Preorder from "../pages/Preorder/Preorder";
 import Basket from "../pages/Basket/Basket";
+import Stock from "../pages/Stock/Stock";
 
 const Router = ({basket, setBasket}) => {
     return (
@@ -21,10 +22,11 @@ const Router = ({basket, setBasket}) => {
 
             <Route path="/banquet" element={<Banquet/>}/>
             <Route path="/bar" element={<Bar/>}/>
-            <Route path="/hookah" element={<Hookah/>}/>
+            <Route path="/hookah" element={<Hookah basket={basket} setBasket={setBasket}/>}/>
             <Route path="/season" element={<Season/>}/>
             <Route path="/preorder" element={<Preorder/>}/>
             <Route path="/basket" element={<Basket/>}/>
+            <Route path="/stock" element={<Stock/>}/>
 
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
