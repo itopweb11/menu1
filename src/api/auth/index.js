@@ -14,10 +14,14 @@ async function getMe() {
 async function register(data = {}) {
     return request('post', "/users", data, false)
 }
+async function edit(data = {}) {
+    return request('put', "/users/me", data, true)
+}
 
 export const authApi = {
     tokenEmail,
     tokenPhone,
     getMe,
-    register
+    register,
+    edit
 }

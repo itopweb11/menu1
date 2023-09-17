@@ -2,15 +2,11 @@ import React from 'react';
 import './PersonalAreaData.scss'
 import {Link} from "react-router-dom";
 
-const PersonalAreaData = () => {
+const PersonalAreaData = ({setModal}) => {
     return (
         <div className="personalAreaData">
-            <Link to="/historyOfOrders">
-                <p>История заказов</p>
-            </Link>
-            <Link to="/personalArea">
-                <p>Личные данные</p>
-            </Link>
+            <p onClick={()=>setModal("HistoryOfOrders")}>История заказов</p>
+            <p onClick={()=>setModal("PersonalArea")}>Личные данные</p>
             <p>Выход</p>
         </div>
     );

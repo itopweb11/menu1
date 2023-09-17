@@ -4,10 +4,11 @@ import "./User.scss"
 import PersonalAreaModal from "../PersonalAreaModal/PersonalAreaModal";
 import {store} from "../../redux";
 import { useNavigate } from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const User = () => {
     const [isShowModal, setIsShowModal] = useState(false)
-    const {isAuth} = store.getState().auth
+    const {isAuth} = useSelector((state) => state.auth)
     const navigate = useNavigate();
 
     const onClick = () =>{
@@ -20,7 +21,10 @@ const User = () => {
     return (
         <div className="user">
             <img onClick={onClick} className="user__container_icon" src={Icon} alt="Icon"/>
-            <PersonalAreaModal setIsShow={setIsShowModal} isShow={isShowModal}/>
+            {
+                isShowModal && <PersonalAreaModal setIsShow={setIsShowModal} isShow={isShowModal}/>
+            }
+
         </div>
     );
 };
