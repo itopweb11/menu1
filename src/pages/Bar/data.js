@@ -2,71 +2,71 @@ export const barData = [
     {
         id: 1,
         desc: 'Шоты',
-        link: '/'
+        link: 'shots'
     },
     {
         id: 2,
         desc: 'Коктейли',
-        link: '/'
+        link: 'cocktails'
     },
     {
         id: 3,
         desc: 'Апперетивы',
-        link: '/'
+        link: 'appetizers'
     },
     {
         id: 4,
         desc: 'Вина',
-        link: '/'
+        link: 'guilt'
     },
     {
         id: 5,
         desc: 'Виски',
-        link: '/'
+        link: 'whiskey'
     },
     {
         id: 6,
         desc: 'Водка',
-        link: '/'
+        link: 'vodka'
     },
     {
         id: 7,
         desc: 'Джин',
-        link: '/'
+        link: 'gin'
     },
     {
         id: 8,
         desc: 'Коньяк',
-        link: '/'
+        link: 'cognac'
     },
     {
         id: 9,
         desc: 'Ром',
-        link: '/'
+        link: 'rum'
     },
     {
         id: 10,
         desc: 'Текила',
-        link: '/'
+        link: 'tequila'
     },
     {
         id: 11,
         desc: 'Пиво',
-        link: '/'
+        link: 'beer'
     },
     {
         id: 12,
         desc: 'Напитки',
-        link: '/'
+        link: 'beverages'
     },
     {
         id: 13,
         desc: 'чай',
-        link: '/'
+        link: 'tea'
     },
     {
         id: 14,
         desc: 'кофе',
-        link: '/'
+        link: 'coffee'
     },
 ]
