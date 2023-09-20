@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./Home.scss"
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 const Home = () => {
+    const [home, setHome] = useState([]);
+
+    useEffect(() => {
+        const apiUrl = 'http://127.0.0.1:8000/api/goods/get_goods_subtypes/';
+        axios.get(apiUrl).then((resp) => {
+            const allPersons = resp.data;
+            setHome(allPersons);
+        });
+    }, [setHome]);
+
+    console.log(home, '................')
+
     return (
         <div className="home">
             <div className="home__container">

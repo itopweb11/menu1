@@ -1,11 +1,11 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {barData} from "../Bar/data";
 import history from "../../helpers/history";
 import {api} from "../../api";
 import Card from "../../components/Card/Card";
-import gifSalads from "../../assets/gif/bar/салаты.gif"
 import "./BarList.scss"
+import BarListData from "./BarListData";
 
 const BarList = ({basket, setBasket}) => {
     let {name} = useParams();
@@ -48,17 +48,20 @@ const BarList = ({basket, setBasket}) => {
                 }
             }
         }
-
         return id
     }
 
     return (
         <div className="barList">
             <div className="barList__title">
-                <p>{data.desc}</p>
+                {goods.map((good, idx) =>
+                    <p key={idx}>{good.subtype}</p>
+                )}
             </div>
             <div className="barList__animation">
-                <img src={gifSalads} alt="gif"/>
+                {goods.map((good, idx) =>
+                    <BarListData subtype={good.subtype} idx={idx}/>
+                )}
             </div>
             <div className="barList__cards">
                 {goods.map((good, idx) =>

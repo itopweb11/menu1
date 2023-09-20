@@ -31,9 +31,14 @@
     }
 
     &_title {
-      margin-top: 21px;
-      text-transform: capitalize;
+      display: block;
+      position: relative;
+      top: 22px;
       z-index: 1;
+      color: #FFF;
+      font-size: 30px;
+      text-transform: capitalize;
+      text-align: center;
     }
 
     &_content {

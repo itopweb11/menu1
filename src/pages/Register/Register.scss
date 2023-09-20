@@ -85,15 +85,10 @@
 
     &_signIn {
       display: flex;
-      margin-top: 11px;
       justify-content: space-between;
-      max-width: 176px;
       width: 100%;
-
-      &_login {
-        max-width: 287px;
-        margin-top: 16px;
-      }
+      max-width: 287px;
+      margin-top: 16px;
 
       p {
         color: #000;
@@ -149,10 +144,16 @@
 
 //media
 
-@media  screen and (max-width: 360px) {
-  .registration__container_signIn_login {
+@media  screen and (max-width: 385px) {
+  .registration__container_signIn {
+    flex-direction: column;
+
+    p {
+      text-align: center;
+    }
+
     a {
-      text-align: right;
+      margin-top: 16px;
     }
   }
 }

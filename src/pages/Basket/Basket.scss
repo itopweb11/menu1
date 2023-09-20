@@ -80,7 +80,7 @@
         margin-left: 30px;
 
         p {
-          font-size: 25px;
+          font-size: 25px!important;
         }
 
         &_button {
@@ -124,18 +124,54 @@
     }
 
     &_button {
-      width: 160px;
-      height: 49px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 20px;
-      background: #0E3F16;
-      color: #FFF;
-      font-family: Prosto One;
-      font-size: 20px;
-      margin: 21px 0 0 93px;
-      border: none;
+
+      button {
+        width: 160px;
+        height: 49px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background: #0E3F16;
+        color: #FFF;
+        font-family: Prosto One;
+        font-size: 20px;
+        margin: 21px 0 0 93px;
+        border: none;
+      }
     }
+  }
+}
+
+
+//media
+
+@media screen and (max-width: 397px) {
+  .basket__desc p {
+    font-size: 17px;
+  }
+
+  .basket__desc_coment {
+    margin-left: 0;
+  }
+
+  .basket__desc_button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    button {
+      margin: 21px 0 0 0;
+    }
+  }
+}
+
+@media screen and (max-width: 363px) {
+  .basket__desc p {
+    font-size: 12px;
+  }
+
+  .basket__desc_table {
+    align-items: end;
   }
 }

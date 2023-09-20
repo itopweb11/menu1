@@ -5,17 +5,23 @@
   gap: 10px;
   overflow-y: scroll;
 
-  &::-webkit-scrollbar {
-    width: 5px;               /* ширина всей полосы прокрутки */
-  }
 
-  &::-webkit-scrollbar-track {
-    margin-top: 48px;
-  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 12px;
+    gap: 10px;
+    overflow-y: scroll;
 
-  &::-webkit-scrollbar-thumb {
-    background-color: #fbfbfb;    /* цвет бегунка */
-    border-radius: 20px;       /* округлось бегунка */
+    &::-webkit-scrollbar {
+      width: 5px;
+      background-color: #717171;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #fbfbfb;    /* цвет бегунка */
+      border-radius: 20px;       /* округлось бегунка */
+    }
   }
 
   &__title {

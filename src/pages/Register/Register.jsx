@@ -74,7 +74,7 @@ const Register = () => {
                                 />
                             </div>
                         </div>
-                        <div className="registration__container_signIn registration__container_signIn_login">
+                        <div className="registration__container_signIn">
                             <p>Есть аккаунт?</p>
                             <Link to={"/login"}>Войдите!</Link>
                         </div>

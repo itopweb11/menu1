@@ -1,5 +1,4 @@
 import axios from "axios"
-import history from "../helpers/history"
 
 export const request = (method, url, data = {}, auth = true) => {
     const api = process.env.REACT_APP_API
@@ -48,3 +47,4 @@ const http = (method, url, data = {}, auth = true) => {
 const getToken = () => {
     return localStorage.getItem("token")
 }
+

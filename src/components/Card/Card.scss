@@ -66,16 +66,20 @@
     margin-top: 8px;
     transition: 1.5s;
 
+    img {
+      width: 150px;
+    }
+
     &_active {
       max-width: 100%;
       width: 100%;
       min-height: 279px;
-    }
 
-    img {
-      width: 100%;
-      height: auto;
-      transition: 1.5s;
+      img {
+        scale: 1.7;
+        height: auto;
+        transition: 1.5s;
+      }
     }
   }
 

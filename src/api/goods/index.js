@@ -7,3 +7,5 @@ async function getList(data = {}){
 export const goodsApi = {
     getList
 }
+
+console.log(getList, 'getList')

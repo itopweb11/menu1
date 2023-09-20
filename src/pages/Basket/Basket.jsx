@@ -33,7 +33,9 @@ const Basket = () => {
                                 </div>
                             </div>
                             <textarea className="basket__desc_coment" placeholder="Коментарий к заказу" name="comment"></textarea>
-                            <button onClick={() => setOrder(true)} className="basket__desc_button">Заказать</button>
+                            <div className="basket__desc_button">
+                                <button onClick={() => setOrder(true)}>Заказать</button>
+                            </div>
                         </div>
                     </div>
 

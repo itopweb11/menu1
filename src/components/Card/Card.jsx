@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import "./Card.scss"
 import BasketBtn from "../BasketBtn/BasketBtn";
 import Counter from "../Counter/Counter";

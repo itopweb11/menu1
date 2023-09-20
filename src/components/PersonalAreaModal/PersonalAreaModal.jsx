@@ -34,7 +34,7 @@ const PersonalAreaModal = ({setIsShow}) => {
             <div
                 onClick={e => e.stopPropagation()}
                 className={"personalAreaModal__items personalAreaModal__items__active"}>
-                <div>
+                <div className="personalAreaModal__title">
                     <Link className="personalAreaModal__items_name" to="/"><h3>{me.first_name} {me.last_name}</h3>
                     </Link>
                     <img onClick={closeModal} src={Vector} alt="vector"/>
