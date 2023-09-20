@@ -1,14 +1,26 @@
 .bar {
-  width: 100%;
   background: url("../../assets/gif/bar/bar.gif") center;
+  background-size: cover;
+  padding: 23px 15px 15px 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 
   &__container {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 100px 15px 84px 15px;
+    justify-content: space-between;
 
+    &_items{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+    }
     a {
       max-width: 380px;
     }

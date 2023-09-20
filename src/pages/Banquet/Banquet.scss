@@ -1,14 +1,14 @@
 .banquet {
-  width: 100%;
   background: url("../../assets/images/banquet/background.png") center no-repeat;
   background-size: cover;
+  padding: 23px 15px 15px 15px;
+  flex: 1;
 
   &__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding: 100px 15px 55px 15px;
 
     a {
       max-width: 380px;

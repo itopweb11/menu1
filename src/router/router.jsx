@@ -13,21 +13,23 @@ import Preorder from "../pages/Preorder/Preorder";
 import Basket from "../pages/Basket/Basket";
 import Stock from "../pages/Stock/Stock";
 import BarList from "../pages/List/BarList";
+import BanquetList from "../pages/List/BanquetList";
 
-const Router = ({basket, setBasket}) => {
+const Router = () => {
     return (
         <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/main" element={<Main/>}/>
-                <Route path="/main/:name" element={<MainList basket={basket} setBasket={setBasket}/>}/>
+            <Route path="/Основное меню" element={<Main/>}/>
+                <Route path="/Основное меню/:name" element={<MainList />}/>
 
-            <Route path="/banquet" element={<Banquet/>}/>
+            <Route path="/Банкетное меню" element={<Banquet/>}/>
+            <Route path="/Банкетное меню/:name" element={<BanquetList />}/>
 
-            <Route path="/bar" element={<Bar/>}/>
-                <Route path="/bar/:name" element={<BarList basket={basket} setBasket={setBasket}/>}/>
+            <Route path="/Барная карта" element={<Bar/>}/>
+                <Route path="/Барная карта/:name" element={<BarList />}/>
 
-            <Route path="/hookah" element={<Hookah basket={basket} setBasket={setBasket}/>}/>
-            <Route path="/season" element={<Season/>}/>
+            <Route path="/Кальянная карта" element={<Hookah />}/>
+            <Route path="/Сезонные блюда" element={<Season/>}/>
             <Route path="/preorder" element={<Preorder/>}/>
             <Route path="/basket" element={<Basket/>}/>
             <Route path="/stock" element={<Stock/>}/>

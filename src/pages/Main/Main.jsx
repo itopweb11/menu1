@@ -1,18 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "./Main.scss"
-import {mainData} from "./data";
 import {Link} from "react-router-dom";
+import {api} from "../../api";
+import {getImage, getImageWithUrl} from "../../helpers/image";
 
 const Main = () => {
+    const [types, setTypes] = useState([]);
+
+    useEffect(() => {
+        api.goodsApi.getGoodsSubTypes({type:"Основное меню"}).then(resp => {
+            setTypes(resp.data)
+        })
+    }, []);
+
     return (
         <div className="main">
             <div className="main__container">
-                {mainData.map((elem, i) => {
+                {types.map((elem, i) => {
                     return (
-                        <Link key={i} to={elem.link}>
-                            <div key={i} className='main__container_item'>
-                                <img src={elem.img} alt="icon"/>
-                                <p>{elem.desc}</p>
+                        <Link key={i} to={elem.name}>
+                            <div className='main__container_item'>
+                                <img src={getImageWithUrl(elem.image)} alt="icon"/>
+                                <p>{elem.name}</p>
                             </div>
                         </Link>
                     )

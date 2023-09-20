@@ -1,8 +1,9 @@
 .mainList {
-  padding: 109px 15px 25px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 23px 15px 15px 15px;
+  flex: 1;
 
   &__title {
 

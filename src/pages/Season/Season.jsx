@@ -1,30 +1,16 @@
-import React from 'react';
-import {seasonData} from "./data";
+import React, {useEffect, useState} from 'react';
 import "./Season.scss"
+import {api} from "../../api";
+import {getImage} from "../../helpers/image";
+import Card from "../../components/Card/Card";
+
 const Season = () => {
+
     return (
         <div className="season">
             <div className="season__container">
                 <h3 className="season__container_title">Сезонные блюда</h3>
-                <div  className="season__container_items">
-                    {seasonData.map(elem => {
-                        return (
-                            <div  className="season__container_items_item">
-                                <img className="season__container_items_item_img" src={elem.img} alt="icon"/>
-                                <div className="season__container_items_item_desc">
-                                    <p>{elem.desc}</p>
-                                    <p>{elem.weight}</p>
-                                </div>
-                                <p className="season__container_items_item_price">{elem.price}</p>
-                                <div className="season__container_items_item_basket">
-                                    <button>
-                                        <img src={elem.iconBasket} alt="icon"/>
-                                    </button>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
+                <Card data={{type: "Сезонные блюда"}}/>
             </div>
         </div>
     );

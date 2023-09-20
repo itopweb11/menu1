@@ -1,49 +1,28 @@
 import React, {useEffect, useState} from 'react';
 import './Hookah.scss'
 import HookahElement from "../../components/HookahElement/HookahElement";
-import HookahModal from "../../components/HookahModal/HookahModal";
 import {api} from "../../api";
-import axios from "axios";
 
-const Hookah = ({setBasket, basket}) => {
-    const [hookah, setHookah] = useState(false)
-    const [goods, setGoods] = useState([])
-    const [a, setA] = useState([])
-
+const Hookah = () => {
+    const [types, setTypes] = useState([]);
 
     useEffect(() => {
-        if ("hookah" === "hookah") {
-            api.goodsApi.getList({type: "Кальянная карта", hookah_type: "Классика"}).then(res => {
-                setGoods(res.data.results)
-            })
-        }
-    }, ["hookah"])
+       /* api.goodsApi.getGoodsSubTypes({type: "Кальянная карта", subtype: "Кальян"}).then(resp => {
+            setTypes(resp.data)
+        })*/
+        setTypes([
+            {type: "Классика"},
+            {type: "Вая"},
+        ])
+    }, []);
 
     return (
-        <div  className="hookah">
+        <div className="hookah">
             <div className="hookah__container">
                 <p className="hookah__container_title">Кальянная карта</p>
-                {goods.map((good, idx) =>
-                    <HookahElement
-                        key={idx}
-                        basket={basket}
-                        setBasket={setBasket}
-                        setHookah={setHookah}
-                        title={good.title}
-                        price={good.price}
-                        tobacco_type={good.tobacco_type}
-                    />
+                {types.map((type, idx) =>
+                    <HookahElement key={idx} type={type.type}/>
                 )}
-                {hookah ?
-                    goods.map((good, idx) =>
-                        <HookahModal
-                            key={idx}
-                            additive_type={good.additive_type}
-                            setHookah={setHookah}
-                        />
-                    )
-                     : ""
-                }
             </div>
         </div>
     );

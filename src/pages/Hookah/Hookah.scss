@@ -1,8 +1,9 @@
 .hookah {
   background: url("../../assets/images/hookah/hookah-still.png");
   background-size: cover;
-  min-height: 2088px;
   position: relative;
+  padding: 23px 15px 15px 15px;
+  flex: 1;
 
   &:after {
     content: "";
@@ -21,7 +22,6 @@
     flex-direction: column;
     align-items: center;
     background-size: cover;
-    padding: 93px 26px 15px 26px;
 
     p {
       color: #FFF;
@@ -33,7 +33,6 @@
     &_title {
       display: block;
       position: relative;
-      top: 22px;
       z-index: 1;
       color: #FFF;
       font-size: 30px;

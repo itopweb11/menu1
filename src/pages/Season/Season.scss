@@ -1,11 +1,10 @@
 .season {
-  width: 100%;
-  min-height: 896px;
   background: url("../../assets/images/season/background.png") center no-repeat;
   background-size: cover;
+  padding: 23px 15px 15px 15px;
+  flex: 1;
 
   &__container {
-    padding: 103px 15px 44px 15px;
 
     &_title {
       color: #FFF;

@@ -1,15 +1,13 @@
 .main {
-  width: 100%;
   background: url("../../assets/images/main/background.png") center no-repeat;
-  padding: 22px 0 15px 0;
   background-size: cover;
+  padding: 23px 15px 15px 15px;
+  flex: 1;
 
   &__container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 15px;
-    margin-top: 77px;
 
     a {
       max-width: 380px;
@@ -40,6 +38,8 @@
       img {
         padding-left: 25px;
         position: absolute;
+        width: 40px;
+        height: 40px;
       }
 
       p {

@@ -26,7 +26,9 @@ const App = () => {
     return (
         <div onClick={handleClick} className="app">
             <Header basket={basket} menu={menu} setMenu={setMenu}/>
-            <Router setBasket={setBasket} basket={basket}/>
+            <div className="container">
+                <Router setBasket={setBasket} basket={basket}/>
+            </div>
         </div>
     );
 };

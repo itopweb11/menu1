@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const request = (method, url, data = {}, auth = true) => {
-    const api = process.env.REACT_APP_API
+    const api = process.env.REACT_APP_API + "/api"
     return http(method, api + url + "/", data, auth).catch(error => {
         return Promise.reject(error)
     })
