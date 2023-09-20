@@ -14,6 +14,10 @@ export const authLogin = (type, data) => (dispatch) => {
     }
 }
 
+export const authLogout = () => (dispatch) => {
+    return api.authApi.logout({}).then(res => dispatch(setToken("")))
+}
+
 export const authGetMe = () => (dispatch) => {
     return api.authApi.getMe().then(res => dispatch(setMe(res.data))).catch(()=>{
         dispatch(setToken(""))

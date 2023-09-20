@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Icon from '../../assets/images/header/icon.png'
 import "./User.scss"
 import PersonalAreaModal from "../PersonalAreaModal/PersonalAreaModal";
@@ -18,6 +18,11 @@ const User = () => {
             navigate("/login")
         }
     }
+
+    useEffect(()=>{
+        setIsShowModal(false)
+    }, [isAuth])
+
     return (
         <div className="user">
             <img onClick={onClick} className="user__container_icon" src={Icon} alt="Icon"/>

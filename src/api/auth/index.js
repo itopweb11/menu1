@@ -7,6 +7,9 @@ async function tokenEmail(data = {}) {
 async function tokenPhone(data = {}) {
     return request('post', "/auth/token-phone", data, false)
 }
+async function logout(data = {}) {
+    return request('post', "/auth/token/logout", data, true)
+}
 
 async function getMe() {
     return request('get', "/users/me", {}, true)
@@ -23,5 +26,6 @@ export const authApi = {
     tokenPhone,
     getMe,
     register,
-    edit
+    edit,
+    logout
 }

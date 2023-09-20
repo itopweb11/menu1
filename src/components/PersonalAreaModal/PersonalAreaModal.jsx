@@ -11,6 +11,7 @@ import {useSelector} from "react-redux";
 const PersonalAreaModal = ({setIsShow}) => {
     const [modal, setModal] = useState("")
     const {me} = useSelector((state) => state.auth)
+    const {isAuth} = useSelector((state) => state.auth)
 
     const closeModal = () => {
         setIsShow(false)
